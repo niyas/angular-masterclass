@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { FollowersService } from './services/followers.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -11,6 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
@@ -25,6 +27,9 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { FollowersComponent } from './followers/followers.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +49,39 @@ import { FollowersComponent } from './followers/followers.component';
     NewCourseFormComponent,
     ChangePasswordFormComponent,
     PostsComponent,
-    FollowersComponent
+    FollowersComponent,
+    NavbarComponent,
+    HomeComponent,
+    NotFoundComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: '', 
+        component: HomeComponent
+      },
+      {
+        path: 'followers/:username', 
+        component: ProfileComponent
+      },
+      {
+        path: 'followers', 
+        component: FollowersComponent
+      },
+      {
+        path: 'posts', 
+        component: PostsComponent
+      },
+      {
+        path: '**', 
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [
     CoursesService,
