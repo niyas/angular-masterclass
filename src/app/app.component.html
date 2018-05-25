@@ -1,0 +1,52 @@
+<!-- <favourate [isFavourate] = "post.isFavourate" (change) = "onFavourateChanged($event)"></favourate>
+<bootstrap-panel>
+  <ng-container class="heading">Heading</ng-container>
+  <div class="body">
+    <h2>Body</h2>
+    <p>Some content Here...</p>
+  </div>
+</bootstrap-panel>
+
+<like [likesCount]="like.count" [isSelected] = "like.isSelected"></like> 
+
+<ul class="nav nav-pills">
+  <li [class.active] = "viewMode == 'map'"><a (click) = "viewMode = 'map'">Map View</a></li>
+  <li [class.active] = "viewMode == 'list'"><a (click) = "viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map view Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<br/>
+<button (click) = "loadCourses()" class="btn btn-primary">Load Courses</button>
+<ul>
+  <li *ngFor="let course of courses; trackBy: trackCourse">
+    {{course.name}} <button (click) = "onRemove(course)" >remove</button>
+  </li>
+</ul>
+
+<input type="text" appInputFormat [format] = "'uppercase'">
+<br/><br/>
+<zippy title="Shipping Component">
+  Shipping Details
+</zippy>
+<br/> <br />
+<contact-form></contact-form>
+<br>
+<br>
+<course-form></course-form>
+
+
+ <signup-form></signup-form>
+ <br>
+ <br>
+ <new-course-form></new-course-form>
+
+ <br>
+ <br>
+ <change-password-form></change-password-form>
+ -->
+
+ <posts></posts>
