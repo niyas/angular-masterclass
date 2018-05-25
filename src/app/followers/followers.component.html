@@ -1,0 +1,12 @@
+
+<div *ngFor="let follower of followers" class="media">
+    <div class="media-left media-middle">
+      <a href="#">
+        <img class="media-object avatar" src="{{follower.avatar_url}}" alt="{{follower.login}}">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{follower.login}}</h4>
+      <a href="{{follower.url}}">{{follower.url}}</a>
+    </div>
+  </div>
